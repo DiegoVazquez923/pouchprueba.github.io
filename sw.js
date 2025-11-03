@@ -4,6 +4,9 @@ const URLS = [
     '/index.html',
     '/styles.css',
     '/app.js',
+    '/img/gato1.png',
+    '/img/gato2.png',
+    '/manifest.json',
     'https://cdn.jsdelivr.net/npm/pouchdb@9.0.0/dist/pouchdb.min.js', 
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js',
     'https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css'
@@ -19,11 +22,13 @@ self.addEventListener('install', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    event.respondWith(
+    if(event.request.mode === 'navigate'){
+        event.respondWith(
         caches.match(event.request)
             .then((response) => {
                 return response || fetch(event.request);
             })
-    );
+        );
+    }
 });
 
