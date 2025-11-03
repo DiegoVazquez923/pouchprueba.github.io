@@ -2,7 +2,7 @@
     "name": "PouchApp",
     "short_name": "Pouch",
     "description": "Aplicacion con PouchDB",
-    "start_url": "/",
+    "start_url": "/pouchprueba.github.io/",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#0d6efd",
